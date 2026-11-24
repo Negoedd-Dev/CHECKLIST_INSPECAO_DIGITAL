@@ -1,0 +1,268 @@
+.ck {
+  --ck-texto: #12304f;
+  --ck-secundario: #455d78;
+  --ck-linha: #d6e2ef;
+  --ck-bom: #006300;
+  --ck-ruim: #8c1f1f;
+
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  color: var(--ck-texto);
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 14px;
+}
+
+.ck h2 {
+  font-size: 1.25rem;
+}
+
+.ck-demo {
+  margin: 4px 0 14px;
+  font-size: 0.8rem;
+  color: var(--ck-secundario);
+}
+
+.ck fieldset {
+  min-width: 0;
+  margin-bottom: 14px;
+  padding: 12px 14px;
+  border: 1px solid #9db3cc;
+  border-radius: 10px;
+}
+
+.ck legend {
+  padding: 0 6px;
+  font-weight: 700;
+}
+
+.ck legend small {
+  margin-left: 8px;
+  font-weight: 400;
+  color: var(--ck-secundario);
+}
+
+.ck input,
+.ck select {
+  width: 100%;
+  min-width: 0;
+  padding: 7px 9px;
+  font: inherit;
+  color: var(--ck-texto);
+  background: #fff;
+  border: 1px solid #7e97b3;
+  border-radius: 8px;
+}
+
+.ck input:focus-visible,
+.ck select:focus-visible,
+.ck button:focus-visible {
+  outline: 2px solid #3f6a9f;
+  outline-offset: 1px;
+}
+
+.ck label {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.ck-cabecalho {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 10px;
+}
+
+/* resultado */
+.ck-resultado {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 20px;
+  margin-bottom: 14px;
+  padding: 10px 14px;
+  border-left: 6px solid;
+  border-radius: 8px;
+}
+
+.ck-resultado strong {
+  display: block;
+  font-size: 1.1rem;
+}
+
+.ck-resultado-rotulo {
+  font-size: 0.75rem;
+  color: var(--ck-secundario);
+}
+
+.ck-aprovada {
+  background: #dff3df;
+  border-color: #0c7a0c;
+}
+
+.ck-andamento {
+  background: #fff1cf;
+  border-color: #b57a00;
+}
+
+.ck-reprovada {
+  background: #fbe4e4;
+  border-color: #c03030;
+}
+
+.ck-progresso {
+  min-width: 190px;
+  font-weight: 400 !important;
+}
+
+.ck-progresso progress {
+  width: 100%;
+  accent-color: #2a78d6;
+}
+
+/* itens */
+.ck-etapa ul {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  list-style: none;
+}
+
+.ck-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 6px 12px;
+  align-items: center;
+  padding: 7px 10px;
+  border: 1px solid var(--ck-linha);
+  border-left: 4px solid var(--ck-linha);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.ck-item-conforme {
+  border-left-color: #0c7a0c;
+}
+
+.ck-item-nao {
+  border-left-color: #c03030;
+  background: #fff6f6;
+}
+
+.ck-item-na {
+  opacity: 0.75;
+}
+
+.ck-opcoes {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+}
+
+.ck-op,
+.ck-acoes button {
+  padding: 5px 11px;
+  font: inherit;
+  font-size: 0.82rem;
+  color: var(--ck-texto);
+  background: #fff;
+  border: 1px solid #7e97b3;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.ck-op[aria-pressed="true"].ck-op-conforme {
+  font-weight: 700;
+  color: var(--ck-bom);
+  background: #dff3df;
+  border-color: #0c7a0c;
+}
+
+.ck-op[aria-pressed="true"].ck-op-nao {
+  font-weight: 700;
+  color: var(--ck-ruim);
+  background: #fbe4e4;
+  border-color: #c03030;
+}
+
+.ck-op[aria-pressed="true"].ck-op-na {
+  font-weight: 700;
+  background: #e6ecf3;
+  border-color: #455d78;
+}
+
+.ck-link {
+  padding: 4px 6px;
+  font: inherit;
+  font-size: 0.78rem;
+  color: var(--ck-secundario);
+  background: none;
+  border: 0;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.ck-obs {
+  grid-column: 1 / -1;
+}
+
+/* recorte */
+.ck-marca {
+  flex-direction: row !important;
+  align-items: center;
+  gap: 8px !important;
+}
+
+.ck-marca input {
+  width: auto;
+}
+
+.ck-recorte {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.ck-largo {
+  grid-column: 1 / -1;
+}
+
+.ck-erro {
+  padding: 8px 12px;
+  font-weight: 600;
+  color: #7a1b1b;
+  background: #fbe4e4;
+  border-radius: 6px;
+}
+
+.ck-calculo {
+  padding: 8px 12px;
+  background: #eaf3fc;
+  border-left: 4px solid #3f6a9f;
+  border-radius: 6px;
+}
+
+/* ações */
+.ck-acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ck-acoes .ck-principal {
+  font-weight: 700;
+  color: #fff;
+  background: #1d4ed8;
+  border-color: #1d4ed8;
+}
+
+@media (max-width: 640px) {
+  .ck-item {
+    grid-template-columns: 1fr;
+  }
+}
