@@ -4,7 +4,7 @@ Checklist de inspeção por etapas, com resultado automático, apontamento de re
 
 ![Tela do projeto](docs/tela.png)
 
-**Demo:** _(preencha quando publicar)_
+**Demo:** _(https://checklist-inspecao-digital-hazel.vercel.app/)_
 
 ## Por que criei
 
@@ -43,4 +43,4 @@ Sem o Git, baixe o ZIP pelo botão verde **Code** desta página.
 
 ## Autor
 
-Negoedd · [LinkedIn](https://www.linkedin.com/in/seu-perfil)
+Negoedd · [LinkedIn](https://www.linkedin.com/in/edson-nunes)
