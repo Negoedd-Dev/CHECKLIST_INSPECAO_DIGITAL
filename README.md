@@ -26,7 +26,7 @@ React, Vite, JavaScript, CSS.
 Requisito: [Node.js](https://nodejs.org) 18 ou superior.
 
 ```bash
-git clone https://github.com/seu-usuario/checklist-inspecao
+git clone https://github.com/Negoedd-Dev/checklist-inspecao
 cd checklist-inspecao
 npm install
 npm run dev
