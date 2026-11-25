@@ -1,4 +1,3 @@
-// Monta o relatório em HTML para imprimir ou salvar em PDF (abre em uma janela própria).
 import { ESTADOS } from "../Modelo/modelo.js";
 
 const esc = (v) =>
@@ -13,11 +12,22 @@ const rotuloEstado = (estado) =>
   ESTADOS.find((e) => e.valor === estado)?.rotulo ?? "Pendente";
 
 const fmt = (v, casas = 2) =>
-  v.toLocaleString("pt-BR", { minimumFractionDigits: casas, maximumFractionDigits: casas });
+  v.toLocaleString("pt-BR", {
+    minimumFractionDigits: casas,
+    maximumFractionDigits: casas,
+  });
 
-const dataBr = (iso) => (/^\d{4}-\d{2}-\d{2}$/.test(iso) ? iso.split("-").reverse().join("/") : iso);
+const dataBr = (iso) =>
+  /^\d{4}-\d{2}-\d{2}$/.test(iso) ? iso.split("-").reverse().join("/") : iso;
 
-export function relatorioHtml({ cabecalho, etapas, respostas, recorte, recorteCalculo, resumo }) {
+export function relatorioHtml({
+  cabecalho,
+  etapas,
+  respostas,
+  recorte,
+  recorteCalculo,
+  resumo,
+}) {
   const c = cabecalho;
   const campos = [
     ["Lote / corrida", c.lote],
@@ -43,7 +53,7 @@ export function relatorioHtml({ cabecalho, etapas, respostas, recorte, recorteCa
             })
             .join("")}
         </tbody>
-      </table>`
+      </table>`,
     )
     .join("");
 
@@ -58,8 +68,12 @@ export function relatorioHtml({ cabecalho, etapas, respostas, recorte, recorteCa
           <tr><th>Comprimento atual</th><td>${calc ? esc(fmt(calc.atualMm, 0)) + " mm" : esc(recorte.comprimentoAtual)}</td></tr>
           <tr><th>Comprimento a remover</th><td>${calc ? esc(fmt(calc.removerMm, 0)) + " mm" : esc(recorte.comprimentoRemover)}</td></tr>
           ${calc ? `<tr><th>Comprimento restante</th><td>${esc(fmt(calc.restanteMm, 0))} mm</td></tr>` : ""}
-          ${calc?.massaRemovida !== undefined ? `<tr><th>Massa teórica removida</th><td>${esc(fmt(calc.massaRemovida))} kg</td></tr>
-          <tr><th>Massa teórica restante</th><td>${esc(fmt(calc.massaRestante))} kg</td></tr>` : ""}
+          ${
+            calc?.massaRemovida !== undefined
+              ? `<tr><th>Massa teórica removida</th><td>${esc(fmt(calc.massaRemovida))} kg</td></tr>
+          <tr><th>Massa teórica restante</th><td>${esc(fmt(calc.massaRestante))} kg</td></tr>`
+              : ""
+          }
           ${recorte.obs ? `<tr><th>Observação</th><td>${esc(recorte.obs)}</td></tr>` : ""}
         </tbody>
       </table>`;

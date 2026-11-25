@@ -1,16 +1,46 @@
-# React + Vite
+# Checklist de inspeção digital
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Checklist de inspeção por etapas, com resultado automático, apontamento de recorte com cálculo de massa e relatório para imprimir ou salvar em PDF.
 
-Currently, two official plugins are available:
+![Tela do projeto](docs/tela.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+**Demo:** _(preencha quando publicar)_
 
-## React Compiler
+## Por que criei
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Trabalho com inspeção dimensional e visual de tubos de aço sem costura. O registro de uma inspeção segue um roteiro e, quando há um defeito, é preciso apontar quanto do tubo será cortado. Criei este checklist para registrar tudo em um só lugar e gerar um relatório. Também faz parte dos meus estudos de desenvolvimento web com React.
 
-## Expanding the Oxlint configuration
+## O que ele faz
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+- Checklist dividido em etapas, com aprovado, reprovado ou não se aplica.
+- Resultado geral calculado automaticamente.
+- Apontamento de recorte: comprimento removido, comprimento restante e massa correspondente.
+- Relatório em página própria, pronto para imprimir ou salvar em PDF.
+
+## Tecnologias
+
+React, Vite, JavaScript, CSS.
+
+## Como rodar
+
+Requisito: [Node.js](https://nodejs.org) 18 ou superior.
+
+```bash
+git clone https://github.com/seu-usuario/checklist-inspecao
+cd checklist-inspecao
+npm install
+npm run dev
+```
+
+Abra o endereço que aparecer no terminal (normalmente http://localhost:5173).
+Sem o Git, baixe o ZIP pelo botão verde **Code** desta página.
+
+## Observações
+
+- Os **itens do checklist são genéricos e fictícios**. Não representam nenhuma norma, cliente ou procedimento de empresa.
+- O cálculo de massa usa a geometria nominal do tubo e a densidade informada (massa teórica).
+- Ferramenta de estudo e demonstração, não substitui o registro oficial de inspeção.
+
+## Autor
+
+Negoedd · [LinkedIn](https://www.linkedin.com/in/seu-perfil)

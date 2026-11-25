@@ -1,13 +1,10 @@
-// Regras do checklist (sem nada de tela, para poder testar).
-// respostas: { [idDoItem]: { estado: "conforme" | "nao" | "na", obs: "" } }
-
 export function resumirEtapa(etapa, respostas) {
   let total = 0;
   let respondidos = 0;
   let naoConformes = 0;
   for (const item of etapa.itens) {
     const estado = respostas[item.id]?.estado;
-    if (estado === "na") continue; // não se aplica: sai da conta
+    if (estado === "na") continue;
     total += 1;
     if (estado === "conforme" || estado === "nao") respondidos += 1;
     if (estado === "nao") naoConformes += 1;
@@ -51,11 +48,22 @@ export function resumir(etapas, respostas) {
   } else if (pendentes > 0 || total === 0) {
     resultado = {
       nivel: "andamento",
-      texto: total === 0 ? "Nenhum item avaliado" : `Em andamento: ${pendentes} ${pendentes === 1 ? "item pendente" : "itens pendentes"}`,
+      texto:
+        total === 0
+          ? "Nenhum item avaliado"
+          : `Em andamento: ${pendentes} ${pendentes === 1 ? "item pendente" : "itens pendentes"}`,
     };
   } else {
     resultado = { nivel: "aprovada", texto: "Conforme" };
   }
 
-  return { total, respondidos, pendentes, naoConformes, naoSeAplica, itensNaoConformes, resultado };
+  return {
+    total,
+    respondidos,
+    pendentes,
+    naoConformes,
+    naoSeAplica,
+    itensNaoConformes,
+    resultado,
+  };
 }

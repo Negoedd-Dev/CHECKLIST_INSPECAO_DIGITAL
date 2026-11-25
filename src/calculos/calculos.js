@@ -2,19 +2,13 @@ import {
   massaPorMetro,
   lerNumero,
   lerComprimentoMm,
-  DENSIDADE_ACO
+  DENSIDADE_ACO,
 } from "../calculos/calculos.js";
-
-// Cálculos da massa teórica de tubos de aço sem costura (tubo liso, sem luva).
-// Fórmula: massa por metro = π × parede × (diâmetro externo − parede) × densidade
-// (medidas em mm e densidade em g/cm³ dão kg/m ao dividir por 1000).
 
 export const DENSIDADE_ACO = 7.85; // g/cm³
 const MM_POR_POLEGADA = 25.4;
 const LB_FT_POR_KG_M = 0.671969; // 1 kg/m = 0,671969 lb/ft
 
-// Aceita vírgula ou ponto como separador decimal ("6,5" ou "6.5").
-// Devolve NaN quando o campo está vazio ou não é número.
 export function lerNumero(texto) {
   if (typeof texto !== "string" || texto.trim() === "") return NaN;
   return Number(texto.trim().replace(",", "."));
@@ -26,14 +20,20 @@ export const paraMm = (valor, unidade) =>
 export const massaPorMetro = (odMm, paredeMm, densidade = DENSIDADE_ACO) =>
   (Math.PI * paredeMm * (odMm - paredeMm) * densidade) / 1000;
 
-// entrada: textos dos campos. Devolve { erro } ou { resultado }.
-// Comprimento e recorte são opcionais (em metros).
-export function calcular({ od, parede, unidade, comprimento, recorte, densidade }) {
+export function calcular({
+  od,
+  parede,
+  unidade,
+  comprimento,
+  recorte,
+  densidade,
+}) {
   const odNum = lerNumero(od);
   const paredeNum = lerNumero(parede);
   const densidadeNum = lerNumero(densidade);
 
-  if (Number.isNaN(odNum) || Number.isNaN(paredeNum)) return { resultado: null };
+  if (Number.isNaN(odNum) || Number.isNaN(paredeNum))
+    return { resultado: null };
   if (odNum <= 0 || paredeNum <= 0) {
     return { erro: "Diâmetro e parede precisam ser maiores que zero." };
   }
@@ -45,7 +45,9 @@ export function calcular({ od, parede, unidade, comprimento, recorte, densidade 
   const paredeMm = paraMm(paredeNum, unidade);
 
   if (paredeMm * 2 >= odMm) {
-    return { erro: "A parede precisa ser menor que a metade do diâmetro externo." };
+    return {
+      erro: "A parede precisa ser menor que a metade do diâmetro externo.",
+    };
   }
 
   const kgPorMetro = massaPorMetro(odMm, paredeMm, densidadeNum);
@@ -59,7 +61,8 @@ export function calcular({ od, parede, unidade, comprimento, recorte, densidade 
 
   const compNum = lerNumero(comprimento);
   if (!Number.isNaN(compNum)) {
-    if (compNum <= 0) return { erro: "O comprimento precisa ser maior que zero." };
+    if (compNum <= 0)
+      return { erro: "O comprimento precisa ser maior que zero." };
     resultado.comprimento = compNum;
     resultado.massaPeca = kgPorMetro * compNum;
 

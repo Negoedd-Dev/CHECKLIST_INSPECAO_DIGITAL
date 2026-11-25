@@ -210,7 +210,6 @@
   grid-column: 1 / -1;
 }
 
-/* recorte */
 .ck-marca {
   flex-direction: row !important;
   align-items: center;
