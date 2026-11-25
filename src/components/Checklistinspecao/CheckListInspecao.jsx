@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from "react";
-import "./ChecklistInspecao.css";
+import "./CheckListInspecao.css";
 import { ETAPAS, ESTADOS, MOTIVOS_RECORTE } from "../Modelo/modelo.js";
 import { resumir, resumirEtapa } from "../Avaliacao/avaliacao.js";
 import { calcularRecorte } from "../Recorte/recorte.js";
@@ -56,7 +56,7 @@ function carregar() {
 
 const ICONES = { aprovada: "✔", andamento: "▲", reprovada: "✖" };
 
-export default function ChecklistInspecao() {
+export default function CheckListInspecao() {
   const [estado, setEstado] = useState(carregar);
   const [obsAbertas, setObsAbertas] = useState({});
   const [copiado, setCopiado] = useState(false);
